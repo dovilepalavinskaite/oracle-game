@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	const randomAnswers = ['Yes', 'No', 'Maybe', 'Keep dreaming', 'Ask me again'];
-
+	
 // Repeat the question when the button is pressed:
 
 	$(".oracle-button").click(function() {
@@ -20,7 +20,7 @@ $(document).ready(function(){
 	$("input[type='text']").keypress(function(event){
 		if(event.which === 13){
 			if (customerQuestion.length) {
-				var customerQuestion = $(this).val();
+				let customerQuestion = $(this).val();
 				$(".question-repeat").append("<span>" + customerQuestion + "</span>");
 				randomAnswerGenerator();
 			}
@@ -32,6 +32,14 @@ $(document).ready(function(){
 	function randomAnswerGenerator() {
 		let randAnsw = randomAnswers[Math.floor(Math.random()*randomAnswers.length)];
 		$(".oracle-answer").append("<span>" + randAnsw + "</span>");
+	}
+
+	// $(".ask-again-btn").click(function() {
+	// 	let customerQuestion = $("input[type='text']").val("");
+	// });
+
+	function resetQuestion() {
+		customerQuestion = "";
 	}
 
 });
